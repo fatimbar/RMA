@@ -1,831 +1,872 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSS Research Methods Mapping — University of York</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-sans); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.hero {
-  padding: 2.5rem 2rem 2rem;
-  border-bottom: 0.5px solid var(--color-border-tertiary);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.hero-left {}
-.york-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  color: #003865;
-  background: #E6F1FB;
-  border: 0.5px solid #B5D4F4;
-  border-radius: var(--border-radius-md);
-  padding: 4px 10px;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-.hero h1 {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  line-height: 1.3;
-  margin-bottom: 0.4rem;
-}
-.hero-sub {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  max-width: 480px;
-}
-.hero-right {
-  flex-shrink: 0;
-  text-align: right;
-}
-.analyst-tag {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-}
-.analyst-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
+  :root {
+    --blue:    #BAE6FD;
+    --blue-d:  #0369A1;
+    --blue-m:  #E0F4FE;
+    --green:   #BBF7D0;
+    --green-d: #059669;
+    --green-m: #DCFCE7;
+    --purple:  #DDD6FE;
+    --purple-d:#6D28D9;
+    --purple-m:#EDE9FE;
+    --pink:    #FBCFE8;
+    --pink-d:  #BE185D;
+    --pink-m:  #FCE7F3;
+    --yellow:  #FEF08A;
+    --yellow-d:#A16207;
+    --yellow-m:#FEFCE8;
+    --bg:      #FFFEF7;
+    --surface: #FFFFFF;
+    --text:    #1E293B;
+    --muted:   #64748B;
+    --border:  #E2E8F0;
+    --radius:  14px;
+    --radius-sm: 8px;
+  }
 
-.progress-bar-section {
-  padding: 1.5rem 2rem;
-  border-bottom: 0.5px solid var(--color-border-tertiary);
-  background: var(--color-background-secondary);
-}
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-.progress-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
-.progress-count {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
-.progress-track {
-  height: 6px;
-  background: var(--color-background-primary);
-  border-radius: 99px;
-  border: 0.5px solid var(--color-border-tertiary);
-  overflow: hidden;
-  margin-bottom: 0.75rem;
-}
-.progress-fill {
-  height: 100%;
-  width: 40%;
-  background: #003865;
-  border-radius: 99px;
-}
-.module-dots {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.mod-dot {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--color-text-secondary);
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.dot.done { background: #003865; }
-.dot.pending { background: var(--color-border-secondary); }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
 
-.section-wrapper {
-  padding: 2rem 2rem 0;
-}
-.section-title {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-tertiary);
-  margin-bottom: 1rem;
-}
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #FFF0F7 0%, #EFF6FF 50%, #F0FDF4 100%);
+    border-bottom: 1.5px solid var(--border);
+    padding: 3rem 2.5rem 2.5rem;
+  }
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .york-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--blue);
+    color: var(--blue-d);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .analyst-card {
+    background: white;
+    border: 1.5px solid var(--pink);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+  .analyst-card .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .analyst-card .role {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .analyst-card .dot-pink {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--pink-d);
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+  /* ── PROGRESS ── */
+  .progress-section {
+    background: white;
+    border-bottom: 1.5px solid var(--border);
+    padding: 1.5rem 2.5rem;
+  }
+  .progress-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .progress-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .progress-count {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .track {
+    height: 10px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .track-fill {
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, var(--blue-d), var(--green-d));
+    border-radius: 99px;
+  }
+  .mod-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mod-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-weight: 500;
+  }
+  .mod-pill.done   { background: var(--green); color: var(--green-d); }
+  .mod-pill.pending { background: var(--border); color: var(--muted); }
+  .pip { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .pip.done { background: var(--green-d); }
+  .pip.pending { background: #CBD5E1; }
 
-.module-card {
-  background: var(--color-background-primary);
-  border: 0.5px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  cursor: pointer;
-  transition: border-color 0.15s;
-}
-.module-card:hover { border-color: var(--color-border-secondary); }
-.module-card.active { border-color: var(--color-border-primary); }
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem;
+  }
 
-.card-header {
-  padding: 1rem 1.25rem 0.75rem;
-  border-bottom: 0.5px solid var(--color-border-tertiary);
-}
-.card-code {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.3rem;
-}
-.card-code.advanced { color: #003865; }
-.card-code.qualitative { color: #0F6E56; }
-.card-title {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-}
-.card-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.tag {
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: var(--border-radius-md);
-  font-weight: 500;
-}
-.tag.blue { background: #E6F1FB; color: #0C447C; }
-.tag.green { background: #E1F5EE; color: #085041; }
-.tag.amber { background: #FAEEDA; color: #633806; }
-.tag.gray { background: #F1EFE8; color: #444441; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  .section-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .section-num.pink   { background: var(--pink);   color: var(--pink-d); }
+  .section-num.blue   { background: var(--blue);   color: var(--blue-d); }
+  .section-num.yellow { background: var(--yellow); color: var(--yellow-d); }
+  .section-num.purple { background: var(--purple); color: var(--purple-d); }
+  .section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+  }
 
-.card-body {
-  padding: 1rem 1.25rem;
-}
-.card-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  padding: 4px 0;
-  gap: 8px;
-}
-.card-row-label {
-  flex-shrink: 0;
-  color: var(--color-text-tertiary);
-  font-size: 12px;
-}
-.card-row-value {
-  text-align: right;
-  color: var(--color-text-primary);
-  font-size: 12px;
-}
-.card-row-value.warn { color: #A32D2D; }
-.card-row-value.ok { color: #0F6E56; }
+  .section-divider {
+    height: 1.5px;
+    background: var(--border);
+    margin: 3rem 0;
+  }
 
-.level-bar {
-  display: flex;
-  gap: 3px;
-  justify-content: flex-end;
-}
-.level-pip {
-  width: 14px;
-  height: 5px;
-  border-radius: 99px;
-  background: var(--color-border-tertiary);
-}
-.level-pip.filled.advanced { background: #003865; }
-.level-pip.filled.qualitative { background: #0F6E56; }
+  /* ── MODULE CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+  .mcard {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .mcard:hover { border-color: #94A3B8; transform: translateY(-2px); }
+  .mcard.active-blue   { border-color: var(--blue-d); box-shadow: 0 0 0 3px var(--blue); }
+  .mcard.active-green  { border-color: var(--green-d); box-shadow: 0 0 0 3px var(--green); }
 
-.analyst-note {
-  margin-top: 0.75rem;
-  padding: 0.6rem 0.75rem;
-  background: var(--color-background-secondary);
-  border-radius: var(--border-radius-md);
-  border-left: 2px solid var(--color-border-tertiary);
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  font-style: italic;
-}
+  .mcard-top {
+    padding: 1.25rem 1.4rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .mcard-top.blue-bg   { background: var(--blue-m); }
+  .mcard-top.green-bg  { background: var(--green-m); }
 
-.card-expand-btn {
-  width: 100%;
-  padding: 0.6rem 1.25rem;
-  border: none;
-  border-top: 0.5px solid var(--color-border-tertiary);
-  background: transparent;
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: background 0.1s;
-}
-.card-expand-btn:hover { background: var(--color-background-secondary); }
+  .mcard-code {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .mcard-code.blue   { color: var(--blue-d); }
+  .mcard-code.green  { color: var(--green-d); }
 
-.timeline-section {
-  padding: 0 2rem 2rem;
-}
-.timeline-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 1rem;
-}
-.timeline-tab {
-  padding: 6px 14px;
-  border-radius: var(--border-radius-md);
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  border: 0.5px solid var(--color-border-tertiary);
-  background: transparent;
-  color: var(--color-text-secondary);
-  transition: all 0.15s;
-}
-.timeline-tab.active-adv {
-  background: #003865;
-  color: #fff;
-  border-color: #003865;
-}
-.timeline-tab.active-qual {
-  background: #0F6E56;
-  color: #fff;
-  border-color: #0F6E56;
-}
+  .mcard-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 99px;
+  }
+  .tag.blue   { background: var(--blue);   color: var(--blue-d); }
+  .tag.green  { background: var(--green);  color: var(--green-d); }
+  .tag.yellow { background: var(--yellow); color: var(--yellow-d); }
+  .tag.purple { background: var(--purple); color: var(--purple-d); }
+  .tag.pink   { background: var(--pink);   color: var(--pink-d); }
 
-.weeks-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  gap: 6px;
-  margin-bottom: 1rem;
-}
-.week-chip {
-  padding: 8px 4px;
-  border-radius: var(--border-radius-md);
-  border: 0.5px solid var(--color-border-tertiary);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.15s;
-  background: var(--color-background-primary);
-}
-.week-chip:hover { border-color: var(--color-border-secondary); }
-.week-chip.selected-adv { background: #E6F1FB; border-color: #185FA5; }
-.week-chip.selected-qual { background: #E1F5EE; border-color: #0F6E56; }
-.week-num {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  display: block;
-}
-.week-label {
-  font-size: 9px;
-  color: var(--color-text-tertiary);
-  display: block;
-  margin-top: 2px;
-}
+  .mcard-body { padding: 1rem 1.4rem; }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px;
+    gap: 8px;
+  }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-key   { color: var(--muted); flex-shrink: 0; }
+  .info-val   { color: var(--text); font-weight: 500; text-align: right; }
+  .info-val.ok   { color: var(--green-d); }
+  .info-val.warn { color: #D97706; }
+  .info-val.bad  { color: #DC2626; }
 
-.week-detail {
-  background: var(--color-background-primary);
-  border: 0.5px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-lg);
-  padding: 1.25rem;
-  display: none;
-}
-.week-detail.visible { display: block; }
-.detail-week-label {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-tertiary);
-  margin-bottom: 0.4rem;
-}
-.detail-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-.detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-.detail-item {}
-.detail-item-label {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-tertiary);
-  margin-bottom: 0.3rem;
-}
-.detail-item-value {
-  font-size: 13px;
-  color: var(--color-text-primary);
-  line-height: 1.5;
-}
-.detail-skill-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--border-radius-md);
-}
+  .level-pips { display: flex; gap: 4px; }
+  .lpip {
+    width: 16px; height: 6px; border-radius: 99px;
+    background: var(--border);
+  }
+  .lpip.on-blue  { background: var(--blue-d); }
+  .lpip.on-green { background: var(--green-d); }
 
-.prereq-section {
-  padding: 0 2rem 2rem;
-}
-.prereq-selector {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 1rem;
-}
-.prereq-btn {
-  flex: 1;
-  padding: 0.75rem 0.5rem;
-  border-radius: var(--border-radius-lg);
-  border: 0.5px solid var(--color-border-tertiary);
-  background: var(--color-background-primary);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.15s;
-}
-.prereq-btn:hover { border-color: var(--color-border-secondary); }
-.prereq-btn.active {
-  border-color: #003865;
-  background: #E6F1FB;
-}
-.prereq-btn-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  display: block;
-}
-.prereq-btn-sub {
-  font-size: 11px;
-  color: var(--color-text-tertiary);
-  display: block;
-  margin-top: 2px;
-}
+  .analyst-note-box {
+    margin-top: 0.9rem;
+    background: var(--yellow-m);
+    border-left: 3px solid var(--yellow-d);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.65rem 0.85rem;
+    font-size: 13px;
+    color: #78350F;
+    line-height: 1.6;
+    font-style: italic;
+  }
 
-.prereq-result {
-  display: none;
-  gap: 0.75rem;
-}
-.prereq-result.visible {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.prereq-module-card {
-  border-radius: var(--border-radius-lg);
-  border: 0.5px solid var(--color-border-tertiary);
-  padding: 1rem;
-  background: var(--color-background-primary);
-}
-.prereq-module-card.recommended {
-  border-color: #0F6E56;
-  background: #E1F5EE;
-}
-.prereq-module-card.caution {
-  border-color: #BA7517;
-  background: #FAEEDA;
-}
-.prereq-module-card.mismatch {
-  border-color: #A32D2D;
-  background: #FCEBEB;
-}
-.prereq-rec-label {
-  font-size: 11px;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-}
-.prereq-rec-label.rec { color: #085041; }
-.prereq-rec-label.caut { color: #633806; }
-.prereq-rec-label.mis { color: #791F1F; }
-.prereq-mod-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: 0.4rem;
-}
-.prereq-reason {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
+  .expand-btn {
+    width: 100%;
+    padding: 0.65rem;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .expand-btn:hover { background: var(--bg); color: var(--text); }
+  .expand-btn svg { width: 15px; height: 15px; }
 
-.roadmap-section {
-  padding: 0 2rem 2rem;
-}
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
-.roadmap-card {
-  background: var(--color-background-primary);
-  border: 0.5px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-lg);
-  padding: 1rem;
-  opacity: 0.7;
-}
-.roadmap-card-code {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--color-text-tertiary);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.3rem;
-}
-.roadmap-card-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-.roadmap-blocker {
-  font-size: 11px;
-  color: #BA7517;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+  /* ── TIMELINE ── */
+  .tl-tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; }
+  .tl-tab {
+    padding: 7px 18px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .tl-tab.on-blue  { background: var(--blue);  color: var(--blue-d);  border-color: var(--blue-d); }
+  .tl-tab.on-green { background: var(--green); color: var(--green-d); border-color: var(--green-d); }
 
-.footer {
-  padding: 1.5rem 2rem;
-  border-top: 0.5px solid var(--color-border-tertiary);
-  background: var(--color-background-secondary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-left {
-  font-size: 12px;
-  color: var(--color-text-tertiary);
-}
-.footer-right {
-  font-size: 12px;
-  color: var(--color-text-tertiary);
-}
+  .weeks-row {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .wk {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .wk:hover { border-color: #94A3B8; transform: translateY(-1px); }
+  .wk.sel-blue  { background: var(--blue-m);  border-color: var(--blue-d); }
+  .wk.sel-green { background: var(--green-m); border-color: var(--green-d); }
+  .wk-n   { font-size: 18px; font-weight: 600; color: var(--text); }
+  .wk-sub { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
-.divider {
-  height: 0.5px;
-  background: var(--color-border-tertiary);
-  margin: 0 2rem 2rem;
-}
+  .week-panel {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: none;
+  }
+  .week-panel.show { display: block; }
+  .wp-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 3px 12px; border-radius: 99px;
+    margin-bottom: 0.6rem;
+  }
+  .wp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+  }
+  .wp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .wp-item {}
+  .wp-item-label {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+  .wp-item-val {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .skill-pill {
+    display: inline-block;
+    font-size: 12px; font-weight: 600;
+    padding: 4px 13px; border-radius: 99px;
+  }
+
+  /* ── PREREQ ── */
+  .prereq-btns { display: flex; gap: 10px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .prereq-btn {
+    flex: 1; min-width: 120px;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: white;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+  }
+  .prereq-btn:hover { border-color: #94A3B8; }
+  .prereq-btn.active { border-color: var(--purple-d); background: var(--purple-m); }
+  .pb-label { font-size: 14px; font-weight: 600; color: var(--text); display: block; }
+  .pb-sub   { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+
+  .prereq-cards {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .prereq-cards.show { display: grid; }
+  .pcard {
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    padding: 1.1rem 1.25rem;
+    background: white;
+  }
+  .pcard.rec  { border-color: var(--green-d);  background: var(--green-m); }
+  .pcard.caut { border-color: #D97706;          background: #FFFBEB; }
+  .pcard.bad  { border-color: #DC2626;          background: #FEF2F2; }
+  .pcard-status {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    margin-bottom: 0.4rem;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .pcard-status.rec  { color: var(--green-d); }
+  .pcard-status.caut { color: #D97706; }
+  .pcard-status.bad  { color: #DC2626; }
+  .pcard-name {
+    font-size: 14px; font-weight: 600;
+    color: var(--text); margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+  .pcard-reason { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* ── ROADMAP ── */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .rcard {
+    background: white;
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    opacity: 0.8;
+  }
+  .rcard-code { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+  .rcard-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; }
+  .rcard-dept { font-size: 11px; margin-bottom: 0.35rem; }
+  .rcard-blocker {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600;
+    color: #D97706;
+    background: var(--yellow-m);
+    padding: 3px 10px; border-radius: 99px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: white;
+    border-top: 1.5px solid var(--border);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 680px) {
+    .cards-grid, .wp-grid, .prereq-cards, .roadmap-grid { grid-template-columns: 1fr; }
+    .hero-inner { flex-direction: column; }
+    .hero h1 { font-size: 24px; }
+    .main { padding: 1.5rem; }
+  }
 </style>
+</head>
+<body>
 
-<h2 class="sr-only">FSS Research Methods Training — Interactive Mapping Tool for the Faculty of Social Sciences, University of York</h2>
-
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-left">
-    <div class="york-badge">
-      <i class="ti ti-school" aria-hidden="true"></i>
-      University of York — Faculty of Social Sciences
+  <div class="hero-inner">
+    <div>
+      <div class="york-badge">
+        &#127979; University of York &nbsp;&middot;&nbsp; Faculty of Social Sciences
+      </div>
+      <h1>Research Methods Training<br>Curriculum Mapping 2026</h1>
+      <p class="hero-desc">An analytical catalogue of PGR research methods training provision across FSS. This tool maps what exists, how modules relate, and where gaps in provision require attention.</p>
     </div>
-    <h1>Research Methods Training<br>Curriculum Mapping 2026</h1>
-    <p class="hero-sub">An analytical catalogue of PGR research methods training provision across FSS. This tool maps what exists, how modules relate, and where gaps in provision require attention.</p>
-  </div>
-  <div class="hero-right">
-    <p class="analyst-name">Fatimah Barnawi</p>
-    <p class="analyst-tag">PhD Researcher, York Law School<br>FSS PGR Skills & Training<br>June 2026</p>
-  </div>
-</div>
-
-<div class="progress-bar-section">
-  <div class="progress-header">
-    <span class="progress-label"><i class="ti ti-list-check" aria-hidden="true" style="margin-right:5px; font-size:14px; vertical-align:-2px;"></i>Catalogue progress</span>
-    <span class="progress-count">2 of 5 modules catalogued</span>
-  </div>
-  <div class="progress-track"><div class="progress-fill"></div></div>
-  <div class="module-dots">
-    <div class="mod-dot"><div class="dot done"></div><span>Advanced Methods (SOC00011M)</span></div>
-    <div class="mod-dot"><div class="dot done"></div><span>Intro Qualitative (SOC00026M)</span></div>
-    <div class="mod-dot"><div class="dot pending"></div><span>Researching Digital Life (SOC00027M)</span></div>
-    <div class="mod-dot"><div class="dot pending"></div><span>Intro Quantitative (SOC00028M)</span></div>
-    <div class="mod-dot"><div class="dot pending"></div><span>Research Design (SPY00159M)</span></div>
-  </div>
-</div>
-
-<div class="section-wrapper">
-  <p class="section-title">Modules catalogued — click to explore</p>
-</div>
-
-<div class="cards-grid" style="padding: 0 2rem; margin-bottom: 0;">
-
-  <div class="module-card" id="card-adv" onclick="selectCard('adv')">
-    <div class="card-header">
-      <div class="card-code advanced">SOC — SOC00011M</div>
-      <div class="card-title">Advanced Methods in Social Research</div>
-      <div class="card-tags">
-        <span class="tag blue">Semester 2</span>
-        <span class="tag blue">In-person</span>
-        <span class="tag amber">Advanced level</span>
-      </div>
+    <div class="analyst-card">
+      <div class="name"><span class="dot-pink"></span>Fatimah Barnawi</div>
+      <div class="role">PhD Researcher &middot; York Law School<br>FSS PGR Skills &amp; Training<br>June 2026</div>
     </div>
-    <div class="card-body">
-      <div class="card-row">
-        <span class="card-row-label">Research philosophy</span>
-        <span class="card-row-value">Quantitative / Mixed</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Contact hours</span>
-        <span class="card-row-value">30 hrs (11 weeks)</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Entry level required</span>
-        <div class="level-bar">
-          <div class="level-pip filled advanced"></div>
-          <div class="level-pip filled advanced"></div>
-          <div class="level-pip filled advanced"></div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-section">
+  <div class="progress-inner">
+    <div class="progress-row">
+      <span class="progress-title">Catalogue progress</span>
+      <span class="progress-count">2 of 5 modules catalogued</span>
+    </div>
+    <div class="track"><div class="track-fill"></div></div>
+    <div class="mod-pills">
+      <div class="mod-pill done"><div class="pip done"></div>Advanced Methods (SOC00011M)</div>
+      <div class="mod-pill done"><div class="pip done"></div>Intro Qualitative (SOC00026M)</div>
+      <div class="mod-pill pending"><div class="pip pending"></div>Researching Digital Life (SOC00027M) — coming next</div>
+      <div class="mod-pill pending"><div class="pip pending"></div>Intro Quantitative (SOC00028M) — planned</div>
+      <div class="mod-pill pending"><div class="pip pending"></div>Research Design (SPY00159M) — planned</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SECTION 1: MODULE CARDS -->
+  <div class="section-header">
+    <div class="section-num pink">1</div>
+    <div class="section-label">Modules catalogued — click to explore</div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- Advanced Methods -->
+    <div class="mcard" id="card-adv" onclick="selectCard('adv')">
+      <div class="mcard-top blue-bg">
+        <div class="mcard-code blue">SOC &mdash; SOC00011M</div>
+        <div class="mcard-title">Advanced Methods in Social Research</div>
+        <div class="tags">
+          <span class="tag blue">Semester 2</span>
+          <span class="tag yellow">Advanced level</span>
+          <span class="tag blue">In-person</span>
         </div>
       </div>
-      <div class="card-row">
-        <span class="card-row-label">Non-specialist access</span>
-        <span class="card-row-value warn">Not recommended</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Mismatch risk</span>
-        <span class="card-row-value warn">Medium</span>
-      </div>
-      <div class="analyst-note">"A one-hour lecture format may limit depth — content likely requires significant self-directed follow-up."</div>
-    </div>
-    <button class="card-expand-btn" onclick="selectCard('adv'); event.stopPropagation();">
-      <i class="ti ti-calendar-week" aria-hidden="true"></i>
-      View 11-week syllabus
-    </button>
-  </div>
-
-  <div class="module-card" id="card-qual" onclick="selectCard('qual')">
-    <div class="card-header">
-      <div class="card-code qualitative">SOC — SOC00026M</div>
-      <div class="card-title">Introduction to Qualitative Methods and Data Analysis</div>
-      <div class="card-tags">
-        <span class="tag green">Semester 1</span>
-        <span class="tag gray">All PGR</span>
-        <span class="tag green">Beginner level</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-row">
-        <span class="card-row-label">Research philosophy</span>
-        <span class="card-row-value">Qualitative</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Contact hours</span>
-        <span class="card-row-value">11 weeks</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Entry level required</span>
-        <div class="level-bar">
-          <div class="level-pip filled qualitative"></div>
-          <div class="level-pip"></div>
-          <div class="level-pip"></div>
+      <div class="mcard-body">
+        <div class="info-row">
+          <span class="info-key">Research philosophy</span>
+          <span class="info-val">Quantitative / Mixed</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Contact hours</span>
+          <span class="info-val">30 hrs &middot; 11 weeks</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Entry level required</span>
+          <div class="level-pips">
+            <div class="lpip on-blue"></div>
+            <div class="lpip on-blue"></div>
+            <div class="lpip on-blue"></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Non-specialist access</span>
+          <span class="info-val bad">Not recommended</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Mismatch risk</span>
+          <span class="info-val warn">Medium</span>
+        </div>
+        <div class="analyst-note-box">
+          "A one-hour lecture format may limit depth — content likely requires significant self-directed follow-up."
         </div>
       </div>
-      <div class="card-row">
-        <span class="card-row-label">Non-specialist access</span>
-        <span class="card-row-value ok">Yes — open entry</span>
-      </div>
-      <div class="card-row">
-        <span class="card-row-label">Mismatch risk</span>
-        <span class="card-row-value ok">Low</span>
-      </div>
-      <div class="analyst-note">"Provides in-depth applied coverage of qualitative methods with practical examples. No prior knowledge assumed."</div>
+      <button class="expand-btn" onclick="selectCard('adv'); event.stopPropagation();">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        View 11-week syllabus
+      </button>
     </div>
-    <button class="card-expand-btn" onclick="selectCard('qual'); event.stopPropagation();">
-      <i class="ti ti-calendar-week" aria-hidden="true"></i>
-      View 11-week syllabus
-    </button>
+
+    <!-- Intro Qualitative -->
+    <div class="mcard" id="card-qual" onclick="selectCard('qual')">
+      <div class="mcard-top green-bg">
+        <div class="mcard-code green">SOC &mdash; SOC00026M</div>
+        <div class="mcard-title">Introduction to Qualitative Methods and Data Analysis</div>
+        <div class="tags">
+          <span class="tag green">Semester 1</span>
+          <span class="tag green">Beginner level</span>
+          <span class="tag pink">Open entry</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <div class="info-row">
+          <span class="info-key">Research philosophy</span>
+          <span class="info-val">Qualitative</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Contact hours</span>
+          <span class="info-val">11 weeks</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Entry level required</span>
+          <div class="level-pips">
+            <div class="lpip on-green"></div>
+            <div class="lpip"></div>
+            <div class="lpip"></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Non-specialist access</span>
+          <span class="info-val ok">Yes — open entry</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Mismatch risk</span>
+          <span class="info-val ok">Low</span>
+        </div>
+        <div class="analyst-note-box">
+          "Provides in-depth applied coverage of qualitative methods with practical examples. No prior knowledge assumed."
+        </div>
+      </div>
+      <button class="expand-btn" onclick="selectCard('qual'); event.stopPropagation();">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        View 11-week syllabus
+      </button>
+    </div>
+
   </div>
 
-</div>
+  <div class="section-divider"></div>
 
-<div class="divider" style="margin-top: 2rem;"></div>
-
-<div class="timeline-section">
-  <p class="section-title">Weekly syllabus — select a module then a week</p>
-  <div class="timeline-tabs">
-    <button class="timeline-tab" id="tab-adv" onclick="switchTimeline('adv')">Advanced Methods</button>
-    <button class="timeline-tab" id="tab-qual" onclick="switchTimeline('qual')">Intro Qualitative</button>
+  <!-- SECTION 2: WEEKLY TIMELINE -->
+  <div class="section-header">
+    <div class="section-num blue">2</div>
+    <div class="section-label">Weekly syllabus — select a module then a week</div>
   </div>
-  <div class="weeks-grid" id="weeks-grid"></div>
-  <div class="week-detail" id="week-detail">
-    <div class="detail-week-label" id="detail-wlabel"></div>
-    <div class="detail-title" id="detail-title"></div>
-    <div class="detail-grid">
-      <div class="detail-item">
-        <div class="detail-item-label">Methods introduced</div>
-        <div class="detail-item-value" id="detail-methods"></div>
+
+  <div class="tl-tabs">
+    <button class="tl-tab" id="tab-adv"  onclick="switchTL('adv')">Advanced Methods</button>
+    <button class="tl-tab" id="tab-qual" onclick="switchTL('qual')">Intro Qualitative</button>
+  </div>
+
+  <div class="weeks-row" id="weeks-row"></div>
+
+  <div class="week-panel" id="week-panel">
+    <div class="wp-badge" id="wp-badge"></div>
+    <div class="wp-title"  id="wp-title"></div>
+    <div class="wp-grid">
+      <div class="wp-item">
+        <div class="wp-item-label">Methods introduced</div>
+        <div class="wp-item-val" id="wp-methods"></div>
       </div>
-      <div class="detail-item">
-        <div class="detail-item-label">Core readings</div>
-        <div class="detail-item-value" id="detail-readings"></div>
+      <div class="wp-item">
+        <div class="wp-item-label">Core readings</div>
+        <div class="wp-item-val" id="wp-readings"></div>
       </div>
-      <div class="detail-item">
-        <div class="detail-item-label">Skill focus</div>
-        <div class="detail-item-value" id="detail-skill"></div>
+      <div class="wp-item">
+        <div class="wp-item-label">Skill focus</div>
+        <div class="wp-item-val" id="wp-skill"></div>
       </div>
-      <div class="detail-item">
-        <div class="detail-item-label">Skill level</div>
-        <div class="detail-item-value" id="detail-level"></div>
+      <div class="wp-item">
+        <div class="wp-item-label">Skill level</div>
+        <div class="wp-item-val" id="wp-level"></div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="divider"></div>
+  <div class="section-divider"></div>
 
-<div class="prereq-section">
-  <p class="section-title">Student pathway — who should take what?</p>
-  <div class="prereq-selector">
-    <button class="prereq-btn" onclick="showPrereq('beginner')">
-      <span class="prereq-btn-label">Beginner</span>
-      <span class="prereq-btn-sub">No prior methods training</span>
+  <!-- SECTION 3: PREREQUISITES -->
+  <div class="section-header">
+    <div class="section-num yellow">3</div>
+    <div class="section-label">Student pathway — who should take what?</div>
+  </div>
+
+  <div class="prereq-btns">
+    <button class="prereq-btn" onclick="showPrereq(this,'beginner')">
+      <span class="pb-label">Beginner</span>
+      <span class="pb-sub">No prior methods training</span>
     </button>
-    <button class="prereq-btn" onclick="showPrereq('intermediate')">
-      <span class="prereq-btn-label">Intermediate</span>
-      <span class="prereq-btn-sub">Some exposure to research</span>
+    <button class="prereq-btn" onclick="showPrereq(this,'intermediate')">
+      <span class="pb-label">Intermediate</span>
+      <span class="pb-sub">Some exposure to research</span>
     </button>
-    <button class="prereq-btn" onclick="showPrereq('advanced')">
-      <span class="prereq-btn-label">Advanced</span>
-      <span class="prereq-btn-sub">Strong methods background</span>
+    <button class="prereq-btn" onclick="showPrereq(this,'advanced')">
+      <span class="pb-label">Advanced</span>
+      <span class="pb-sub">Strong methods background</span>
     </button>
   </div>
-  <div class="prereq-result" id="prereq-result"></div>
-</div>
 
-<div class="divider"></div>
+  <div class="prereq-cards" id="prereq-cards"></div>
 
-<div class="roadmap-section">
-  <p class="section-title">Next — modules pending VLE access</p>
+  <div class="section-divider"></div>
+
+  <!-- SECTION 4: ROADMAP -->
+  <div class="section-header">
+    <div class="section-num purple">4</div>
+    <div class="section-label">Coming next — modules to be catalogued in sequence</div>
+  </div>
+
   <div class="roadmap-grid">
-    <div class="roadmap-card">
-      <div class="roadmap-card-code">SOC00027M</div>
-      <div class="roadmap-card-name">Researching Digital Life</div>
-      <div class="roadmap-blocker"><i class="ti ti-lock" aria-hidden="true" style="font-size:12px;"></i>Awaiting VLE access</div>
+    <div class="rcard">
+      <div class="rcard-code">SOC00027M</div>
+      <div class="rcard-name">Researching Digital Life</div>
+      <div class="rcard-dept" style="color:var(--muted);">Sociology — Semester 2</div>
+      <div class="rcard-blocker">&#9654; In progress</div>
     </div>
-    <div class="roadmap-card">
-      <div class="roadmap-card-code">SOC00028M</div>
-      <div class="roadmap-card-name">Intro to Quantitative Methods</div>
-      <div class="roadmap-blocker"><i class="ti ti-lock" aria-hidden="true" style="font-size:12px;"></i>Awaiting VLE access</div>
+    <div class="rcard">
+      <div class="rcard-code">SOC00028M</div>
+      <div class="rcard-name">Introduction to Quantitative Methods</div>
+      <div class="rcard-dept" style="color:var(--muted);">Sociology — Semester 1</div>
+      <div class="rcard-blocker">&#9654; Planned</div>
     </div>
-    <div class="roadmap-card">
-      <div class="roadmap-card-code">SPY00159M</div>
-      <div class="roadmap-card-name">Research Design</div>
-      <div class="roadmap-blocker"><i class="ti ti-lock" aria-hidden="true" style="font-size:12px;"></i>Awaiting VLE access</div>
+    <div class="rcard">
+      <div class="rcard-code">SPY00159M</div>
+      <div class="rcard-name">Research Design</div>
+      <div class="rcard-dept" style="color:var(--muted);">Social Policy &amp; Social Work — Semester 1</div>
+      <div class="rcard-blocker">&#9654; Planned</div>
     </div>
   </div>
+
 </div>
 
-<div class="footer">
-  <span class="footer-left">FSS Research Methods Training Catalogue — Work in progress, June 2026</span>
-  <span class="footer-right">Fatimah Barnawi &middot; York Law School &middot; PGR Year 1</span>
-</div>
+<!-- FOOTER -->
+<footer>
+  <span>FSS Research Methods Training Catalogue &mdash; Work in progress, June 2026</span>
+  <span>Fatimah Barnawi &middot; York Law School &middot; PGR Year 1</span>
+</footer>
 
 <script>
 const advWeeks = [
-  { n:1, title:"Introduction", methods:"Introduction to Qualitative and Quantitative Methods", readings:"Not provided", skill:"Planning a research strategy", level:"Foundation" },
-  { n:2, title:"Mobile and walking methods", methods:"Mobile and walking methods", readings:"Haldrup (2010) — Choreographies of Leisure Mobilities", skill:"Planning a research strategy", level:"Foundation" },
-  { n:3, title:"Media analysis", methods:"Critical discourse analysis, media ethnography, decoding practices", readings:"Not provided", skill:"Phase-by-phase planning", level:"Building" },
-  { n:4, title:"Digital ethnography", methods:"Digital ethnography: definition and practices, ethical considerations", readings:"Not provided", skill:"Digital ethnography understanding", level:"Building" },
-  { n:5, title:"Decolonising methodologies", methods:"Decolonial research, narratives and storytelling", readings:"Tjarden & Spörlein — Local Policies and Refugee Integration", skill:"Decolonisation understanding", level:"Building" },
-  { n:6, title:"Quantitative review", methods:"Data analysis, interaction effects, statistics for social research", readings:"Hayes (2018) — Chapter 7: Mediation & Moderation", skill:"Quantitative application and practice", level:"Advanced" },
-  { n:7, title:"Formative assessment week", methods:"Formative assessment", readings:"N/A", skill:"Designing quantitative projects", level:"Advanced" },
-  { n:8, title:"Reproducibility and regression", methods:"Merton's norms, replication vs. duplication, regression for categorical outcomes", readings:"Extended reading list", skill:"Quantitative application and practice", level:"Advanced" },
-  { n:9, title:"Mediation and moderation", methods:"Structural equation models, path analysis, latent variables, intersectionality", readings:"Extended reading list", skill:"Interpretation of results", level:"Advanced" },
+  { n:1,  title:"Introduction", methods:"Introduction to Qualitative and Quantitative Methods", readings:"Not provided", skill:"Planning a research strategy", level:"Foundation" },
+  { n:2,  title:"Mobile and walking methods", methods:"Mobile and walking methods", readings:"Haldrup (2010) — Choreographies of Leisure Mobilities", skill:"Planning a research strategy", level:"Foundation" },
+  { n:3,  title:"Media analysis", methods:"Critical discourse analysis, media ethnography, decoding practices", readings:"Not provided", skill:"Phase-by-phase planning", level:"Building" },
+  { n:4,  title:"Digital ethnography", methods:"Digital ethnography: definition and practices, ethical considerations", readings:"Not provided", skill:"Digital ethnography understanding", level:"Building" },
+  { n:5,  title:"Decolonising methodologies", methods:"Decolonial research, narratives and storytelling", readings:"Tjarden & Spörlein — Local Policies and Refugee Integration", skill:"Decolonisation understanding", level:"Building" },
+  { n:6,  title:"Quantitative review", methods:"Data analysis, interaction effects, statistics for social research", readings:"Hayes (2018) — Mediation, Moderation & Conditional Process Analysis, Ch.7", skill:"Quantitative application and practice", level:"Advanced" },
+  { n:7,  title:"Formative assessment week", methods:"Formative assessment task", readings:"N/A", skill:"Designing quantitative projects", level:"Advanced" },
+  { n:8,  title:"Reproducibility and regression", methods:"Merton's norms, replication vs. duplication, regression for categorical outcomes", readings:"Extended reading list", skill:"Quantitative application and practice", level:"Advanced" },
+  { n:9,  title:"Mediation and moderation", methods:"Structural equation models, path analysis, latent variables, intersectionality", readings:"Extended reading list", skill:"Interpretation of results", level:"Advanced" },
   { n:10, title:"Longitudinal data analysis", methods:"Complex survey designs, longitudinal study types and methods", readings:"Extended reading list", skill:"Advanced analysis", level:"Advanced" },
   { n:11, title:"Summative assessment", methods:"Assessment", readings:"N/A", skill:"Quantitative application and practice", level:"Advanced" }
 ];
 
 const qualWeeks = [
-  { n:1, title:"Introducing qualitative methods", methods:"Module introduction, framing qualitative research", readings:"Sian (2024) Anti-Racist Research Toolkit; Critical Methodologies Collective (2022)", skill:"Orientation to qualitative research", level:"Foundation" },
-  { n:2, title:"Interviews", methods:"Conducting interviews — practical and philosophical dimensions", readings:"Practical discussion materials", skill:"Data collection", level:"Foundation" },
-  { n:3, title:"Thematic analysis", methods:"Thematic analysis of qualitative data", readings:"Module reading list", skill:"Data analysis", level:"Building" },
-  { n:4, title:"Narrative analysis", methods:"Narrative approach to qualitative data", readings:"Maines — Narrative's Moment and Sociology's Phenomena (Sociological Quarterly)", skill:"Analytical frameworks", level:"Building" },
-  { n:5, title:"Documents in social research", methods:"Personal documents, objects and materials documenting human life", readings:"Plummer and Stanley", skill:"Understanding of social context", level:"Building" },
-  { n:6, title:"Ethnography", methods:"Ethnographic methods — basics, background, practice, ethics", readings:"Module reading list", skill:"Ethnographic practice", level:"Building" },
-  { n:7, title:"Creative methods", methods:"Arts-based methods, visual methods, data collection and analysis", readings:"Kara (2015) — Creative Research Methods in the Social Sciences", skill:"Creative data collection", level:"Building" },
-  { n:8, title:"Assessment support", methods:"Portfolio assessment Q&A", readings:"N/A", skill:"Assessment preparation", level:"Foundation" },
-  { n:9, title:"Computer-assisted qualitative analysis", methods:"NVivo — thematic coding of qualitative datasets", readings:"NVivo documentation", skill:"Software competency", level:"Advanced" },
+  { n:1,  title:"Introducing qualitative methods", methods:"Module introduction, framing qualitative research", readings:"Sian (2024) Anti-Racist Research Toolkit; Critical Methodologies Collective (2022)", skill:"Orientation to qualitative research", level:"Foundation" },
+  { n:2,  title:"Interviews", methods:"Conducting qualitative interviews — practical and philosophical dimensions", readings:"Practical discussion materials", skill:"Data collection", level:"Foundation" },
+  { n:3,  title:"Thematic analysis", methods:"Thematic analysis of qualitative data", readings:"Module reading list", skill:"Data analysis", level:"Building" },
+  { n:4,  title:"Narrative analysis", methods:"Narrative approach to qualitative data analysis", readings:"Maines — Narrative's Moment and Sociology's Phenomena", skill:"Analytical frameworks", level:"Building" },
+  { n:5,  title:"Documents in social research", methods:"Personal documents, objects and materials documenting human life", readings:"Plummer and Stanley", skill:"Understanding of social context", level:"Building" },
+  { n:6,  title:"Ethnography", methods:"Ethnographic methods — basics, background, practice, ethics", readings:"Module reading list", skill:"Ethnographic practice", level:"Building" },
+  { n:7,  title:"Creative methods", methods:"Arts-based methods, visual methods, data collection and analysis", readings:"Kara (2015) — Creative Research Methods in the Social Sciences", skill:"Creative data collection", level:"Building" },
+  { n:8,  title:"Assessment support", methods:"Portfolio assessment Q&A", readings:"N/A", skill:"Assessment preparation", level:"Foundation" },
+  { n:9,  title:"Computer-assisted qualitative analysis", methods:"NVivo — thematic coding of qualitative datasets", readings:"NVivo documentation", skill:"Software competency", level:"Advanced" },
   { n:10, title:"Quality in qualitative research", methods:"Qualitative rigour, use of evidence, quality criteria", readings:"Mason — Qualitative Researching, Ch.9", skill:"Critical evaluation", level:"Advanced" },
   { n:11, title:"Assessment support", methods:"Q&A — assessment preparation", readings:"Braun & Clarke — Successful Qualitative Research, Ch.12", skill:"Assessment preparation", level:"Foundation" }
 ];
 
-const levelColors = {
-  "Foundation": { bg:"#F1EFE8", color:"#444441" },
-  "Building": { bg:"#FAEEDA", color:"#633806" },
-  "Advanced": { bg:"#E6F1FB", color:"#0C447C" }
+const levelStyle = {
+  Foundation: { bg:"#FEF08A", color:"#A16207" },
+  Building:   { bg:"#FBCFE8", color:"#BE185D" },
+  Advanced:   { bg:"#BAE6FD", color:"#0369A1" }
 };
 
-let currentTimeline = null;
-let selectedWeek = null;
-let selectedCard = null;
+const prereqData = {
+  beginner: [
+    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"rec",  status:"Recommended",       reason:"No prior knowledge assumed. Open entry, Semester 1. The ideal starting point for all PGR students regardless of discipline." },
+    { name:"Advanced Methods in Social Research (SOC00011M)", type:"bad",  status:"Not suitable yet",  reason:"Requires prior completion of both Intro Qualitative and Intro Quantitative. High risk of mismatch at beginner stage." }
+  ],
+  intermediate: [
+    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"rec",  status:"Still beneficial",  reason:"Even with some prior exposure, this module offers applied depth in qualitative methods and NVivo training that adds real value." },
+    { name:"Advanced Methods in Social Research (SOC00011M)", type:"caut", status:"Proceed with caution", reason:"Some content will be accessible, but the quantitative and statistical components require strong prior foundations in methods." }
+  ],
+  advanced: [
+    { name:"Advanced Methods in Social Research (SOC00011M)", type:"rec",  status:"Recommended",       reason:"Designed for researchers with strong methodology foundations. Offers depth in advanced qualitative and quantitative techniques." },
+    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"caut", status:"Optional supplement", reason:"Value may be limited at advanced level, but qualitative practitioners may find specific weeks (e.g. NVivo, narrative) useful." }
+  ]
+};
+
+let currentTL = null;
+let selectedWk = null;
 
 function selectCard(which) {
-  document.getElementById('card-adv').classList.remove('active');
-  document.getElementById('card-qual').classList.remove('active');
-  document.getElementById('card-' + which).classList.add('active');
-  selectedCard = which;
-  switchTimeline(which);
+  document.getElementById('card-adv').classList.remove('active-blue','active-green');
+  document.getElementById('card-qual').classList.remove('active-blue','active-green');
+  document.getElementById('card-' + which).classList.add(which === 'adv' ? 'active-blue' : 'active-green');
+  switchTL(which);
+  setTimeout(() => document.getElementById('tab-adv').scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
 }
 
-function switchTimeline(which) {
-  currentTimeline = which;
-  selectedWeek = null;
-  document.getElementById('week-detail').classList.remove('visible');
+function switchTL(which) {
+  currentTL = which;
+  selectedWk = null;
+  document.getElementById('week-panel').classList.remove('show');
 
-  document.getElementById('tab-adv').className = 'timeline-tab' + (which === 'adv' ? ' active-adv' : '');
-  document.getElementById('tab-qual').className = 'timeline-tab' + (which === 'qual' ? ' active-qual' : '');
+  var tabAdv  = document.getElementById('tab-adv');
+  var tabQual = document.getElementById('tab-qual');
+  tabAdv.className  = 'tl-tab' + (which === 'adv'  ? ' on-blue'  : '');
+  tabQual.className = 'tl-tab' + (which === 'qual' ? ' on-green' : '');
 
-  const weeks = which === 'adv' ? advWeeks : qualWeeks;
-  const grid = document.getElementById('weeks-grid');
-  grid.innerHTML = '';
-  weeks.forEach(w => {
-    const chip = document.createElement('div');
-    chip.className = 'week-chip';
-    chip.id = 'wk-' + w.n;
-    chip.innerHTML = '<span class="week-num">' + w.n + '</span><span class="week-label">Week</span>';
-    chip.onclick = () => showWeek(w, which);
-    grid.appendChild(chip);
+  var weeks = which === 'adv' ? advWeeks : qualWeeks;
+  var row = document.getElementById('weeks-row');
+  row.innerHTML = '';
+  weeks.forEach(function(w) {
+    var el = document.createElement('div');
+    el.className = 'wk';
+    el.id = 'wk-' + w.n;
+    el.innerHTML = '<span class="wk-n">' + w.n + '</span><span class="wk-sub">Week</span>';
+    el.onclick = function() { showWeek(w, which); };
+    row.appendChild(el);
   });
 }
 
 function showWeek(w, which) {
-  if (selectedWeek !== null) {
-    const prev = document.getElementById('wk-' + selectedWeek);
-    if (prev) prev.classList.remove('selected-adv', 'selected-qual');
+  if (selectedWk) {
+    var prev = document.getElementById('wk-' + selectedWk);
+    if (prev) prev.classList.remove('sel-blue','sel-green');
   }
-  selectedWeek = w.n;
-  const chip = document.getElementById('wk-' + w.n);
-  chip.classList.add(which === 'adv' ? 'selected-adv' : 'selected-qual');
+  selectedWk = w.n;
+  var chip = document.getElementById('wk-' + w.n);
+  chip.classList.add(which === 'adv' ? 'sel-blue' : 'sel-green');
 
-  document.getElementById('detail-wlabel').textContent = 'Week ' + w.n + ' — ' + (which === 'adv' ? 'Advanced Methods in Social Research' : 'Introduction to Qualitative Methods');
-  document.getElementById('detail-title').textContent = w.title;
-  document.getElementById('detail-methods').textContent = w.methods;
-  document.getElementById('detail-readings').textContent = w.readings;
-  document.getElementById('detail-skill').textContent = w.skill;
-
-  const lc = levelColors[w.level] || levelColors["Foundation"];
-  document.getElementById('detail-level').innerHTML = '<span class="detail-skill-badge" style="background:' + lc.bg + ';color:' + lc.color + ';">' + w.level + '</span>';
-
-  document.getElementById('week-detail').classList.add('visible');
+  var lc = levelStyle[w.level] || levelStyle.Foundation;
+  var badgeColor = which === 'adv' ? 'background:#BAE6FD;color:#0369A1;' : 'background:#BBF7D0;color:#059669;';
+  document.getElementById('wp-badge').style.cssText    = badgeColor + 'padding:4px 14px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;';
+  document.getElementById('wp-badge').textContent      = 'Week ' + w.n + ' — ' + (which === 'adv' ? 'Advanced Methods' : 'Intro Qualitative');
+  document.getElementById('wp-title').textContent      = w.title;
+  document.getElementById('wp-methods').textContent    = w.methods;
+  document.getElementById('wp-readings').textContent   = w.readings;
+  document.getElementById('wp-skill').textContent      = w.skill;
+  document.getElementById('wp-level').innerHTML        = '<span class="skill-pill" style="background:' + lc.bg + ';color:' + lc.color + ';">' + w.level + '</span>';
+  document.getElementById('week-panel').classList.add('show');
 }
 
-const prereqData = {
-  beginner: [
-    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"recommended", rec:"Recommended", reason:"No prior knowledge assumed. Open entry, Semester 1. Ideal starting point for all PGR students." },
-    { name:"Advanced Methods in Social Research (SOC00011M)", type:"mismatch", rec:"Not suitable yet", reason:"Requires prior completion of Intro Qualitative and Intro Quantitative modules. High risk of mismatch at this stage." }
-  ],
-  intermediate: [
-    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"recommended", rec:"Still beneficial", reason:"Even with some prior exposure, this module offers applied depth and NVivo training that adds value." },
-    { name:"Advanced Methods in Social Research (SOC00011M)", type:"caution", rec:"Proceed with caution", reason:"Some content will be accessible, but the quantitative and statistical components require strong prior foundations." }
-  ],
-  advanced: [
-    { name:"Advanced Methods in Social Research (SOC00011M)", type:"recommended", rec:"Recommended", reason:"Designed for researchers with strong methodology foundations. Offers depth in both qualitative and quantitative advanced techniques." },
-    { name:"Introduction to Qualitative Methods (SOC00026M)", type:"caution", rec:"Optional supplement", reason:"Value may be limited given expertise level, but qualitative practitioners may find specific weeks useful." }
-  ]
-};
+function showPrereq(btn, level) {
+  document.querySelectorAll('.prereq-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
 
-function showPrereq(level) {
-  document.querySelectorAll('.prereq-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-
-  const result = document.getElementById('prereq-result');
-  const data = prereqData[level];
-  result.innerHTML = '';
-
-  data.forEach(d => {
-    const card = document.createElement('div');
-    card.className = 'prereq-module-card ' + d.type;
-    const labelClass = d.type === 'recommended' ? 'rec' : d.type === 'caution' ? 'caut' : 'mis';
-    const icon = d.type === 'recommended' ? 'ti-circle-check' : d.type === 'caution' ? 'ti-alert-triangle' : 'ti-circle-x';
-    card.innerHTML = '<div class="prereq-rec-label ' + labelClass + '"><i class="ti ' + icon + '" style="font-size:12px;vertical-align:-1px;margin-right:4px;" aria-hidden="true"></i>' + d.rec + '</div><div class="prereq-mod-name">' + d.name + '</div><div class="prereq-reason">' + d.reason + '</div>';
-    result.appendChild(card);
+  var data  = prereqData[level];
+  var cards = document.getElementById('prereq-cards');
+  cards.innerHTML = '';
+  data.forEach(function(d) {
+    var icons = { rec:'✔', caut:'⚠', bad:'✕' };
+    var el = document.createElement('div');
+    el.className = 'pcard ' + d.type;
+    el.innerHTML = '<div class="pcard-status ' + d.type + '">' + icons[d.type] + ' ' + d.status + '</div>'
+                 + '<div class="pcard-name">' + d.name + '</div>'
+                 + '<div class="pcard-reason">' + d.reason + '</div>';
+    cards.appendChild(el);
   });
-
-  result.classList.add('visible');
+  cards.classList.add('show');
 }
 </script>
+</body>
+</html>
