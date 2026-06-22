@@ -56,7 +56,6 @@ if page == "📊 Overview Dashboard":
     st.title("📊 PGR Research Methods Training — Module Catalogue")
     st.markdown("A structural framework mapping social science research methods. Completed modules are interactive below.")
     
-    # Using Safe Native Streamlit Containers instead of HTML to bypass Python 3.14 restrictions
     col1, col2 = st.columns(2)
     
     with col1:
@@ -103,24 +102,30 @@ elif page == "📅 Interactive Weekly Timeline":
         ["Advanced Methods in Social Research", "Introduction to Qualitative Methods and Data Analysis"]
     )
     
-    module_weeks = weekly_df[weekly_df['Module Name'].str.contains(selected_module, na=False, case=False)]
+    # Secure data filtering
+    module_weeks = weekly_df[weekly_df['Module Name'].str.contains(selected_module, na=False, case=False)].copy()
     
     if not module_weeks.empty:
+        # Fixed Plotly parameters to prevent text/marker type value errors
         fig_timeline = px.scatter(
             module_weeks,
             x="Week No.",
             y="Skill Level This Week",
             hover_data=["Week Title / Topic", "Key Content & Methods Covered", "Core Readings"],
-            text="Week No.",
             title=f"Learning Journey Timeline: {selected_module}"
         )
         
         marker_color = "#BAE6FD" if "Advanced" in selected_module else "#BBF7D0"
+        
+        # Safe update without explicit inside-text enforcement
         fig_timeline.update_traces(
-            marker=dict(size=35, color=marker_color, line=dict(width=2, color='#94A3B8')),
-            textposition="inside",
-            font=dict(size=12, color='#1E293B')
+            mode="markers+text",
+            text=module_weeks["Week No."],
+            textposition="top center",
+            marker=dict(size=20, color=marker_color, line=dict(width=1.5, color='#64748B')),
+            font=dict(size=11, color='#1E293B')
         )
+        
         fig_timeline.update_layout(
             plot_bgcolor="#F8F9FA",
             xaxis=dict(title="Week Number", tickmode="linear"),
