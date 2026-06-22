@@ -23,19 +23,6 @@ st.html("""
     [data-testid="stSidebar"] {
         background-image: linear-gradient(180deg, #E0F2FE 0%, #DCFCE7 100%) !important;
     }
-    /* Custom Interactive Dashboard Cards */
-    .metric-card {
-        background-color: white !important;
-        padding: 20px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
-        border-left: 5px solid #BAE6FD !important;
-        margin-bottom: 15px !important;
-        color: #2D3748 !important;
-    }
-    .metric-card.qual {
-        border-left: 5px solid #BBF7D0 !important;
-    }
     h1, h2, h3 {
         color: #1E293B !important;
     }
@@ -53,7 +40,7 @@ def load_data():
 try:
     overview_df, weekly_df = load_data()
 except Exception as e:
-    st.error(f"Error loading the Excel file. Please ensure 'FSS_Research_Methods_Catalogue.xlsx' is in the same directory: {e}")
+    st.error(f"Error loading the Excel file: {e}")
     st.stop()
 
 # 4. Sidebar Navigation
@@ -69,27 +56,22 @@ if page == "📊 Overview Dashboard":
     st.title("📊 PGR Research Methods Training — Module Catalogue")
     st.markdown("A structural framework mapping social science research methods. Completed modules are interactive below.")
     
+    # Using Safe Native Streamlit Containers instead of HTML to bypass Python 3.14 restrictions
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("""
-        <div class="metric-card">
-            <span style="color: #0284C7; font-weight: bold; font-size: 0.9rem;">SOC — SOC00011M (Advanced)</span>
-            <h3 style="margin: 5px 0; color: #1E293B;">Advanced Methods in Social Research</h3>
-            <p style="font-size: 0.9rem; color: #64748B;"><b>Philosophy:</b> Quantitative | <b>Credits/Hours:</b> 30 contact hours</p>
-            <p style="font-size: 0.85rem; background: #F0F9FF; padding: 8px; border-radius: 6px; color: #1E293B;">💡 <b>Analyst Notes:</b> The course is interactive, offering diverse approaches. A one-hour lecture may mean that the content is only a partial introduction and requires subsequent self-study.</p>
-        </div>
-        """, unsafe_allow_index=True)
+        with st.container(border=True):
+            st.caption("🔹 SOC — SOC00011M (Advanced)")
+            st.subheader("Advanced Methods in Social Research")
+            st.markdown("**Philosophy:** Quantitative | **Credits/Hours:** 30 contact hours")
+            st.info("💡 **Analyst Notes:** The course is interactive, offering diverse approaches. A one-hour lecture may mean that the content is only a partial introduction and requires subsequent self-study.")
         
     with col2:
-        st.markdown("""
-        <div class="metric-card qual">
-            <span style="color: #16A34A; font-weight: bold; font-size: 0.9rem;">SOC — SOC00026M (Beginner)</span>
-            <h3 style="margin: 5px 0; color: #1E293B;">Introduction to Qualitative Methods and Data Analysis</h3>
-            <p style="font-size: 0.9rem; color: #64748B;"><b>Philosophy:</b> Qualitative | <b>Level:</b> Beginner</p>
-            <p style="font-size: 0.85rem; background: #F0FDF4; padding: 8px; border-radius: 6px; color: #1E293B;">💡 <b>Analyst Notes:</b> This module provides an in-depth study of qualitative research, covering its various types with practical and applied examples.</p>
-        </div>
-        """, unsafe_allow_index=True)
+        with st.container(border=True):
+            st.caption("🔸 SOC — SOC00026M (Beginner)")
+            st.subheader("Introduction to Qualitative Methods and Data Analysis")
+            st.markdown("**Philosophy:** Qualitative | **Level:** Beginner")
+            st.success("💡 **Analyst Notes:** This module provides an in-depth study of qualitative research, covering its various types with practical and applied examples.")
 
     st.write("---")
     st.subheader("📉 Catalogue Mapping Progress")
@@ -165,28 +147,22 @@ elif page == "🌳 Prerequisites & Risk Analysis":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("""
-        <div style="background-color: #FEF2F2; padding: 20px; border-radius: 12px; border: 1px solid #FCA5A5; color: #2D3748;">
-            <span style="background-color: #EF4444; color: white; padding: 3px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Advanced Level</span>
-            <h3 style="margin-top: 10px; color: #1E293B;">Advanced Methods (SOC00011M)</h3>
-            <p><b>Accessible to Non-Specialists?</b> ❌ No</p>
-            <p><b>Risk of Mismatch:</b> ⚠️ Medium Risk</p>
-            <hr style="border: 0.5px solid #FCA5A5;">
-            <p style="font-size: 0.9rem;"><b>Implicit Prerequisites:</b> Requires advanced knowledge of research methodologies, intermediate statistics, and philosophy of social sciences.</p>
-        </div>
-        """, unsafe_allow_index=True)
+        with st.container(border=True):
+            st.error("🔺 Advanced Level")
+            st.subheader("Advanced Methods (SOC00011M)")
+            st.markdown("**Accessible to Non-Specialists?** ❌ No")
+            st.markdown("**Risk of Mismatch:** ⚠️ Medium Risk")
+            st.write("---")
+            st.caption("**Implicit Prerequisites:** Requires advanced knowledge of research methodologies, intermediate statistics, and philosophy of social sciences.")
         
     with col2:
-        st.markdown("""
-        <div style="background-color: #F0FDF4; padding: 20px; border-radius: 12px; border: 1px solid #BBF7D0; color: #2D3748;">
-            <span style="background-color: #22C55E; color: white; padding: 3px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Beginner Level</span>
-            <h3 style="margin-top: 10px; color: #1E293B;">Intro Qualitative (SOC00026M)</h3>
-            <p><b>Accessible to Non-Specialists?</b>  Yes</p>
-            <p><b>Risk of Mismatch:</b> ✅ Low Risk</p>
-            <hr style="border: 0.5px solid #BBF7D0;">
-            <p style="font-size: 0.9rem;"><b>Stated Prerequisites:</b> The module makes no assumptions about students’ prior knowledge of qualitative methods.</p>
-        </div>
-        """, unsafe_allow_index=True)
+        with st.container(border=True):
+            st.success("🟢 Beginner Level")
+            st.subheader("Intro Qualitative (SOC00026M)")
+            st.markdown("**Accessible to Non-Specialists?** Yes")
+            st.markdown("**Risk of Mismatch:** ✅ Low Risk")
+            st.write("---")
+            st.caption("**Stated Prerequisites:** The module makes no assumptions about students’ prior knowledge of qualitative methods.")
 
     st.write("---")
     st.markdown("💡 *Strategic Note: As more rows are completed in the catalogue, this section will automatically scale to generate a network graph mapping student journeys.*")
