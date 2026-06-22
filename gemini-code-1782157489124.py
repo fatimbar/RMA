@@ -102,34 +102,31 @@ elif page == "📅 Interactive Weekly Timeline":
         ["Advanced Methods in Social Research", "Introduction to Qualitative Methods and Data Analysis"]
     )
     
-    # Secure data filtering
+    # Secure data filtering & cleaning text-based rows out of numeric timeline
     module_weeks = weekly_df[weekly_df['Module Name'].str.contains(selected_module, na=False, case=False)].copy()
     
     if not module_weeks.empty:
-        # Fixed Plotly parameters to prevent text/marker type value errors
-        fig_timeline = px.scatter(
+        # Crucial Fix: Convert Week No to numeric and drop rows that are headers or empty text
+        module_weeks['Week No.'] = pd.to_numeric(module_weeks['Week No.'], errors='coerce')
+        module_weeks = module_weeks.dropna(subset=['Week No.'])
+        module_weeks = module_weeks.sort_values(by='Week No.')
+        
+        # Using Safe px.line with markers to completely bypass update_traces values errors
+        fig_timeline = px.line(
             module_weeks,
             x="Week No.",
             y="Skill Level This Week",
-            hover_data=["Week Title / Topic", "Key Content & Methods Covered", "Core Readings"],
-            title=f"Learning Journey Timeline: {selected_module}"
-        )
-        
-        marker_color = "#BAE6FD" if "Advanced" in selected_module else "#BBF7D0"
-        
-        # Safe update without explicit inside-text enforcement
-        fig_timeline.update_traces(
-            mode="markers+text",
-            text=module_weeks["Week No."],
-            textposition="top center",
-            marker=dict(size=20, color=marker_color, line=dict(width=1.5, color='#64748B')),
-            font=dict(size=11, color='#1E293B')
+            markers=True,
+            hover_data=["Week Title / Topic", "Methods Introduced", "Core Readings"],
+            title=f"Learning Journey Timeline: {selected_module}",
+            color_discrete_sequence=["#0284C7" if "Advanced" in selected_module else "#16A34A"]
         )
         
         fig_timeline.update_layout(
             plot_bgcolor="#F8F9FA",
-            xaxis=dict(title="Week Number", tickmode="linear"),
-            yaxis=dict(title="Target Focus / Skill Progression")
+            xaxis=dict(title="Week Number", tickmode="linear", dtick=1),
+            yaxis=dict(title="Target Focus / Skill Progression"),
+            margin=dict(l=40, r=40, t=40, b=40)
         )
         
         st.plotly_chart(fig_timeline, use_container_width=True)
